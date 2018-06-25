@@ -1,0 +1,82 @@
+@import 'reset';
+@import 'base';
+
+
+.app{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+}
+.box{
+  display: grid;
+  .img{
+    background-size: cover;
+    background-position: center center;
+  }
+  .s-border{
+    border: 20px solid $mainColor;
+    box-sizing: border-box;
+  }
+  .s-bg{
+    background-color: $mainColor;
+  }
+  .product, .title{
+    white-space:nowrap;
+  }
+}
+.box2{
+  grid: repeat(3, 100px)/repeat(4, 120px);
+  .img{
+    grid-area: 2/1/4/3; 
+  }
+  .s-bg{
+    grid-area: 2/1/4/3; 
+  }
+  .s-border{
+    grid-area: 1/2/3/4; 
+  }
+  .s-bg{
+    transform: translate(25%, -25%);
+    z-index: -1;
+  }
+  .num{
+    grid-area: 1/3;
+    justify-self: end;
+  }
+  .title{
+    grid-area: 4/2; 
+    transform: translate(0, 50%);
+  }
+  .product{
+    align-self: end;
+  }
+}
+.box1{
+  grid: repeat(5, 100px)/repeat(6, 120px);
+  .img{
+    grid-area: 2/1/6/5; 
+  }
+  .num{
+    grid-area: 6 / 1;
+  }
+  .title{
+    grid-area: 2/1/2/5;
+  }
+  .product{
+    writing-mode: vertical-rl;
+    
+    grid-area: 5/5;
+    justify-self: start;
+  }
+  .s-border{
+    grid-area: 1/3/3/5;
+    transform: translate(25%, 25%);
+    z-index: -1;
+  }
+  .s-pattern{
+    grid-area: 5/1/6/3;
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, $mainColor), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, $mainColor), color-stop(0.75, #50E3C2), color-stop(0.75, transparent), to(transparent));
+    background-size: 40px 40px;
+    transform: translate(25%, 50%);
+  }
+}
