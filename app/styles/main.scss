@@ -1,14 +1,33 @@
 @import 'reset';
 @import 'base';
 
-$wGrid: 120px;
+$wGrid: 1fr;
 $hGrid: 100px;
-.app{
-  display: flex;
-  flex-wrap: wrap;
-  padding: 50px;
+.container{
   max-width: 960px;
   margin: 0 auto;
+  padding: 50px;
+}
+.header{
+  text-align: center;
+}
+.sub-title{
+  font-size: 20px;
+  background-color: $b;
+  color: $w;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.app{
+  display: grid;
+  margin-top: -100px;
+  box-sizing: border-box;
+ 
+ 
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(19, 100px);
 }
 .box{
   display: grid;
@@ -34,6 +53,7 @@ $hGrid: 100px;
       position: absolute;
       top: -16px;
       left: 0;
+      width: 100%;
       color: rgba(0, 0, 0, 0.3);
       height: 22px;
       overflow: hidden;
@@ -44,6 +64,7 @@ $hGrid: 100px;
       color: rgba(0, 0, 0, 0.1);
       top: -25px;
       left: 0;
+      width: 100%;
       height: 15px;
       overflow: hidden;
     }
@@ -53,15 +74,15 @@ $hGrid: 100px;
   }
 }
 .box7{
+  grid-area: 16/1/span 5/span 3; 
   grid: repeat(5, $hGrid)/repeat(3, $wGrid);
   .img{
     grid-area: 2/1/span 4/span 2; 
   }
   .title{
-    writing-mode: vertical-rl;
-    grid-area: 2/3;
-     writing-mode: vertical-rl;
-     justify-self: self-end; 
+    grid-area: 2/1/2/3;
+    transform: translate(50%, 67.5%) rotate(90deg);
+    justify-self: self-end; 
   }
   .s-bg{
     grid-area: 4/3/span 2 /span 1;
@@ -83,12 +104,13 @@ $hGrid: 100px;
   }
 }
 .box6{
+  grid-area: 14/4/span 5/span 5; 
   grid: repeat(5, $hGrid)/repeat(5, $wGrid);
   .img{
     grid-area: 2/2/span 4/span 4; 
   }
   .title{
-    grid-area: 1/3;
+    grid-area: 1/3/span 1/span 3;
     align-self: flex-end;
   }
   .s-bg{
@@ -112,12 +134,13 @@ $hGrid: 100px;
   }
 }
 .box5{
+  grid-area: 12/1/span 3/span 4; 
   grid: repeat(3, $hGrid)/repeat(4, $wGrid);
   .img{
     grid-area: 2/3/span 2/span 2; 
   }
   .title{
-    grid-area: 2/1;
+    grid-area: 2/1/span 1/span 3;
     align-self: flex-end;
   }
   .s-pattern{
@@ -138,13 +161,14 @@ $hGrid: 100px;
   }
 }
 .box4{
+  grid-area: 8/6/span 5/span 3; 
   grid: repeat(5, $hGrid)/repeat(3, $wGrid);
   .img{
     grid-area: 2/2/span 4/span 2; 
   }
   .title{
-    grid-area: 2/1;
-    writing-mode: vertical-rl;
+    grid-area: 2/2/span 1/span 2;
+    transform: translate(-50%, -25%) rotate(-90deg);
   }
   .s-pattern{
     grid-area: 5/2/span 1 /span 2;
@@ -163,11 +187,12 @@ $hGrid: 100px;
   .product{
     grid-area: 1/3/span 2/span 1;
     writing-mode: vertical-rl;
-    transform: translate(0, -50%);
+    transform: translate(0, -25%);
     justify-self: center;
   }
 }
 .box3{
+  grid-area: 8/1/span 4/span 4; 
   grid: repeat(4, $hGrid)/repeat(4, $wGrid);
   .img{
     grid-area: 2/1/4/5; 
@@ -196,9 +221,10 @@ $hGrid: 100px;
   }
 }
 .box2{
-  grid: repeat(3, $hGrid)/repeat(4, $wGrid);
+  grid-area: 3/6/span 3/span 3; 
+  grid: repeat(3, $hGrid)/repeat(3, $wGrid);
   .img{
-    grid-area: 2/1/4/3; 
+    grid-area: 2/1/span 2/span 2; 
   }
   .s-bg{
     grid-area: 2/1/4/3; 
@@ -215,7 +241,7 @@ $hGrid: 100px;
     justify-self: flex-end;
   }
   .title{
-    grid-area: 4/2; 
+    grid-area: 4/2/span 1 /span 2; 
     transform: translate(0, 50%);
   }
   .product{
@@ -223,6 +249,7 @@ $hGrid: 100px;
   }
 }
 .box1{
+  grid-area: 2/1/span 5/span 6; 
   grid: repeat(5, $hGrid)/repeat(6, $wGrid);
   .img{
     grid-area: 2/1/6/5; 
