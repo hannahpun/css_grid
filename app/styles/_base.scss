@@ -2,20 +2,23 @@
 $mainColor: #50E3C2;
 $b: #000;
 $w: #fff;
-$grey: rgba(#000000, 0.3);
-$grey-light: rgba(#000000, 0.1);
+$grey: rgba(#000,0.3);
+$grey-light: rgba(#000,0.1);
 body {
-    font-family: 'Roboto', sans-serif;
-    // background-color: cornflowerblue;
+  font-family: 'Roboto', sans-serif; // background-color: cornflowerblue;
 }
-h1{
-    font-size: 72px;
+
+h1 {
+  font-size: 72px;
 }
-h2, .num{
-    font-size: 48px;
-    font-weight: 500;
+
+h2,.num {
+  font-size: 48px;
+  font-weight: 600;
 }
-.product{
-    font-size: 24px;
-    font-style: italic;
+
+.product {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
 }

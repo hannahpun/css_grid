@@ -1,11 +1,14 @@
 @import 'reset';
 @import 'base';
 
-
+$wGrid: 120px;
+$hGrid: 100px;
 .app{
   display: flex;
   flex-wrap: wrap;
   padding: 50px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 .box{
   display: grid;
@@ -17,15 +20,183 @@
     border: 20px solid $mainColor;
     box-sizing: border-box;
   }
+  .s-pattern{
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, $mainColor), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, $mainColor), color-stop(0.75, #50E3C2), color-stop(0.75, transparent), to(transparent));
+    background-size: 40px 40px;
+  }
   .s-bg{
     background-color: $mainColor;
+  }
+  .title{
+    position: relative;
+    &::before{
+      content: attr(text);
+      position: absolute;
+      top: -16px;
+      left: 0;
+      color: rgba(0, 0, 0, 0.3);
+      height: 22px;
+      overflow: hidden;
+    }
+    &::after{
+      content: attr(text);
+      position: absolute;
+      color: rgba(0, 0, 0, 0.1);
+      top: -25px;
+      left: 0;
+      height: 15px;
+      overflow: hidden;
+    }
   }
   .product, .title{
     white-space:nowrap;
   }
 }
+.box7{
+  grid: repeat(5, $hGrid)/repeat(3, $wGrid);
+  .img{
+    grid-area: 2/1/span 4/span 2; 
+  }
+  .title{
+    writing-mode: vertical-rl;
+    grid-area: 2/3;
+     writing-mode: vertical-rl;
+     justify-self: self-end; 
+  }
+  .s-bg{
+    grid-area: 4/3/span 2 /span 1;
+  }
+  .s-border{
+    grid-area: 1/1/span 4 /span 2;
+    transform: translate(25%, 10%);
+    z-index: -1;
+  }
+  .num{
+    grid-area: -2/-2;
+    align-self: flex-end;
+    text-align: right;
+  }
+  .product{
+    grid-area: 1/1;
+    align-self: flex-end;
+    // text-align: center;
+  }
+}
+.box6{
+  grid: repeat(5, $hGrid)/repeat(5, $wGrid);
+  .img{
+    grid-area: 2/2/span 4/span 4; 
+  }
+  .title{
+    grid-area: 1/3;
+    align-self: flex-end;
+  }
+  .s-bg{
+    grid-area: 4/1/span 2 /span 1;
+    transform: translate(50%, 0%);
+    z-index: -1;
+  }
+  .s-border{
+    grid-area: 5/2/span 1 /span 4;
+    transform: translate(0%, 50%);
+    z-index: -1;
+  }
+  .num{
+    grid-area: 3/1;
+    align-self: flex-end;
+    text-align: right;
+  }
+  .product{
+    grid-area: -1/3/span 1/span 2;
+    text-align: center;
+  }
+}
+.box5{
+  grid: repeat(3, $hGrid)/repeat(4, $wGrid);
+  .img{
+    grid-area: 2/3/span 2/span 2; 
+  }
+  .title{
+    grid-area: 2/1;
+    align-self: flex-end;
+  }
+  .s-pattern{
+    grid-area: 1/1/span 1 /span 2;
+    transform: translate(25%, 50%);
+  }
+  .s-border{
+    grid-area: 3/2/span 1 /span 2;
+    transform: translate(0%, 50%);
+    z-index: -1;
+  }
+  .num{
+    grid-area: -2/2;
+    align-self: flex-end;
+  }
+  .product{
+    grid-area: 2/5;
+  }
+}
+.box4{
+  grid: repeat(5, $hGrid)/repeat(3, $wGrid);
+  .img{
+    grid-area: 2/2/span 4/span 2; 
+  }
+  .title{
+    grid-area: 2/1;
+    writing-mode: vertical-rl;
+  }
+  .s-pattern{
+    grid-area: 5/2/span 1 /span 2;
+    transform: translate(0, 50%);
+  }
+  .s-border{
+    grid-area: 1/1/span 2 /span 2;
+    transform: translate(25%, 0%);
+    z-index: -1;
+  }
+  .num{
+    grid-area: -2/1;
+    text-align: right;
+    align-self: flex-end;
+  }
+  .product{
+    grid-area: 1/3/span 2/span 1;
+    writing-mode: vertical-rl;
+    transform: translate(0, -50%);
+    justify-self: center;
+  }
+}
+.box3{
+  grid: repeat(4, $hGrid)/repeat(4, $wGrid);
+  .img{
+    grid-area: 2/1/4/5; 
+  }
+  .title{
+    grid-area: 1/2/1/5;
+    align-self: flex-end;
+    text-align: right;
+  }
+  .s-bg{
+    grid-area: 1/1/span 1 /span 2;
+    transform: translate(0, 50%);
+    z-index: -1;
+  }
+  .s-border{
+    grid-area: 2/3/span 2/span 2;
+    transform: translate(25%, 25%);
+    z-index: -1;
+  }
+  .num{
+    grid-area: 4/5;
+  }
+  .product{
+    grid-area:4/1/span 1/span 2;
+    text-align: right; 
+  }
+}
 .box2{
-  grid: repeat(3, 100px)/repeat(4, 120px);
+  grid: repeat(3, $hGrid)/repeat(4, $wGrid);
   .img{
     grid-area: 2/1/4/3; 
   }
@@ -41,18 +212,18 @@
   }
   .num{
     grid-area: 1/3;
-    justify-self: end;
+    justify-self: flex-end;
   }
   .title{
     grid-area: 4/2; 
     transform: translate(0, 50%);
   }
   .product{
-    align-self: end;
+    align-self: flex-end;
   }
 }
 .box1{
-  grid: repeat(5, 100px)/repeat(6, 120px);
+  grid: repeat(5, $hGrid)/repeat(6, $wGrid);
   .img{
     grid-area: 2/1/6/5; 
   }
@@ -75,8 +246,6 @@
   }
   .s-pattern{
     grid-area: 5/1/6/3;
-    background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, $mainColor), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, $mainColor), color-stop(0.75, #50E3C2), color-stop(0.75, transparent), to(transparent));
-    background-size: 40px 40px;
     transform: translate(25%, 50%);
   }
 }
